@@ -1,132 +1,182 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Neon Shine Car Wash</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Neon Auto Showroom</title>
+
 <style>
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:Arial, sans-serif;
-}body{ min-height:100vh; overflow-x:hidden; background: linear-gradient(135deg,#0f0c29,#302b63,#24243e); color:#fff; }
+}
 
-.circle{ position:absolute; border-radius:50%; filter: blur(60px); opacity:0.6; animation: float 8s infinite ease-in-out; z-index:0; }
+body{
+background: linear-gradient(135deg,#0a0a1a,#1a1a40,#0a0a1a);
+color:white;
+overflow-x:hidden;
+}
 
-.circle1{width:200px;height:200px;background:#00f0ff;top:10%;left:10%;} .circle2{width:250px;height:250px;background:#ff00ff;bottom:10%;right:15%;animation-delay:2s;} .circle3{width:180px;height:180px;background:#00ff85;top:60%;left:60%;animation-delay:4s;}
+/* glowing blobs */
+.blob{
+position:absolute;
+width:300px;
+height:300px;
+border-radius:50%;
+filter: blur(80px);
+opacity:0.5;
+animation: float 8s infinite ease-in-out;
+}
 
-@keyframes float{ 0%,100%{transform:translateY(0px)} 50%{transform:translateY(-30px)} }
+.b1{background:#00f0ff;top:10%;left:10%;}
+.b2{background:#ff00ff;bottom:10%;right:10%;animation-delay:2s;}
+.b3{background:#00ff88;top:50%;left:50%;animation-delay:4s;}
 
-.glass{ background: rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.2); backdrop-filter: blur(20px); border-radius:20px; box-shadow:0 8px 32px rgba(0,0,0,0.4); }
+@keyframes float{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-40px)}
+}
 
-nav{ display:flex; justify-content:space-between; align-items:center; padding:20px 10%; position:relative; z-index:2; }
+/* glass */
+.glass{
+background: rgba(255,255,255,0.08);
+backdrop-filter: blur(20px);
+border:1px solid rgba(255,255,255,0.15);
+border-radius:20px;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
 
-.logo{ font-size:22px; font-weight:bold; color:#00f0ff; }
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+align-items:center;
+position:relative;
+z-index:2;
+}
 
-.btn{ padding:10px 20px; border-radius:12px; border:none; background:linear-gradient(45deg,#00f0ff,#ff00ff); color:#000; font-weight:bold; cursor:pointer; transition:0.3s; }
+.logo{
+font-size:22px;
+font-weight:bold;
+color:#00f0ff;
+}
+
+.btn{
+padding:10px 18px;
+border:none;
+border-radius:10px;
+background:linear-gradient(45deg,#00f0ff,#ff00ff);
+color:black;
+font-weight:bold;
+cursor:pointer;
+transition:0.3s;
+}
 
 .btn:hover{transform:scale(1.05);}
 
-.hero{ display:flex; flex-direction:column; align-items:center; justify-content:center; height:80vh; text-align:center; padding:20px; position:relative; z-index:2; }
-
-.hero h1{font-size:50px;} .hero p{margin-top:10px;opacity:0.8;}
-
-.hero img{ width:300px; margin-top:20px; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,0.5); }
-
-.cards{ display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:50px 10%; position:relative; z-index:2; }
-
-.card{ padding:20px; transition:0.3s; animation: float 6s infinite ease-in-out; }
-
-.card:hover{transform:translateY(-10px);}
-
-.form-section{ padding:50px 10%; position:relative; z-index:2; }
-
-.form-box{ padding:30px; max-width:500px; margin:auto; }
-
-.form-box h2{ margin-bottom:20px; text-align:center; }
-
-.form-box input, .form-box textarea{ width:100%; padding:12px; margin:10px 0; border-radius:10px; border:none; outline:none; }
-
-.form-box textarea{height:120px;resize:none;}
-
-.success{ display:none; text-align:center; margin-top:10px; color:#00ff85; font-weight:bold; }
-
-footer{ text-align:center; padding:20px; opacity:0.7; position:relative; z-index:2; } </style>
-
-</head>
-<body><div class="circle circle1"></div>
-<div class="circle circle2"></div>
-<div class="circle circle3"></div><nav>
-<div class="logo">NEON WASH 🚗</div>
-<button class="btn" onclick="scrollToForm()">Book Now</button>
-</nav><section class="hero">
-<h1>Premium Car Wash</h1>
-<p>Shine like new with our AI powered detailing service</p>
-<img src="https://images.unsplash.com/photo-1600661653561-629509216228?auto=format&fit=crop&w=800&q=80" alt="car wash" />
-<br>
-<button class="btn" onclick="scrollToForm()">Get Started</button>
-</section><section class="cards">
-<div class="glass card">
-<h2>Exterior Wash</h2>
-<p>Deep cleaning & shine polish for your car exterior.</p>
-</div>
-<div class="glass card">
-<h2>Interior Cleaning</h2>
-<p>Complete vacuum & interior sanitization service.</p>
-</div>
-<div class="glass card">
-<h2>Full Detailing</h2>
-<p>Premium package for full car transformation.</p>
-</div>
-</section><section class="form-section" id="formSection">
-<div class="glass form-box">
-<h2>Book Your Car Wash</h2>
-<form id="bookingForm">
-<input type="text" id="name" placeholder="Your Name" required />
-<input type="tel" id="phone" placeholder="Phone Number" required />
-<input type="text" id="car" placeholder="Car Model" required />
-<textarea id="address" placeholder="Your Address"></textarea>
-<button class="btn" type="submit">Submit Booking</button>
-</form>
-<div class="success" id="successMsg">Booking Sent Successfully 🚗✨</div>
-</div>
-</section><footer>
-© 2026 Neon Wash | All Rights Reserved
-</footer><script>
-function scrollToForm(){
-    document.getElementById('formSection').scrollIntoView({behavior:'smooth'});
+.hero{
+text-align:center;
+padding:80px 20px;
+position:relative;
+z-index:2;
 }
 
-// Form system + WhatsApp + local storage
-const form = document.getElementById('bookingForm');
-const successMsg = document.getElementById('successMsg');
+.hero h1{
+font-size:50px;
+}
 
-form.addEventListener('submit', function(e){
-    e.preventDefault();
+.hero p{
+opacity:0.7;
+margin-top:10px;
+}
 
-    const data = {
-        name: document.getElementById('name').value,
-        phone: document.getElementById('phone').value,
-        car: document.getElementById('car').value,
-        address: document.getElementById('address').value
-    };
+.hero img{
+width:350px;
+margin-top:20px;
+border-radius:20px;
+box-shadow:0 20px 60px rgba(0,0,0,0.6);
+}
 
-    // Save locally (basic backend simulation)
-    let bookings = JSON.parse(localStorage.getItem('bookings') || '[]');
-    bookings.push(data);
-    localStorage.setItem('bookings', JSON.stringify(bookings));
+/* cars */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+padding:60px 10%;
+position:relative;
+z-index:2;
+}
 
-    // WhatsApp message
-    const message = `New Car Wash Booking:%0AName: ${data.name}%0APhone: ${data.phone}%0ACar: ${data.car}%0AAddress: ${data.address}`;
-    const whatsappNumber = "918000000000"; // change this
-    window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+.card{
+padding:20px;
+transition:0.3s;
+}
 
-    successMsg.style.display = "block";
-    form.reset();
+.card:hover{
+transform:translateY(-10px);
+}
 
-    setTimeout(()=>{
-        successMsg.style.display = "none";
-    },3000);
-});
-</script></body>
-</html>
+.card img{
+width:100%;
+border-radius:15px;
+margin-bottom:10px;
+}
+
+/* form */
+.form{
+padding:60px 10%;
+position:relative;
+z-index:2;
+}
+
+.box{
+max-width:500px;
+margin:auto;
+padding:30px;
+}
+
+input,textarea{
+width:100%;
+padding:12px;
+margin:10px 0;
+border-radius:10px;
+border:none;
+outline:none;
+}
+
+textarea{height:100px;}
+
+/* footer */
+footer{
+text-align:center;
+padding:20px;
+opacity:0.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+
+<nav>
+<div class="logo">NEON AUTO 🚗</div>
+<button class="btn">Contact</button>
+</nav>
+
+<section class="hero">
+<h1>Premium Car Showroom</h1>
+<p>Buy luxury & sports cars with futuristic experience</p>
+
+<img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80"/>
+</section>
+
+<section class="grid">
+
+<div class="glass card">
+<img src="https://images.unsplash.com/photo-1619767886558-
