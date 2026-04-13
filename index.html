@@ -2,94 +2,89 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Veloura — Apple Level 3D Dining</title><style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,Segoe UI;
-}
+<title>NeonWash — Premium Car Spa</title><style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI}
 
 body{
-  height:400vh;
-  background:#000;
-  color:#fff;
-  overflow-x:hidden;
+height:400vh;
+background:#000;
+overflow-x:hidden;
+color:#fff;
 }
 
 /* ===== 3D SCENE ===== */
 .scene{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100vh;
-  perspective:1400px;
-  transform-style:preserve-3d;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100vh;
+perspective:1400px;
+transform-style:preserve-3d;
 }
 
-/* ===== BACKGROUND GLOWS ===== */
+/* ===== GLOW BACKGROUND ===== */
 .glow{
-  position:absolute;
-  width:500px;
-  height:500px;
-  border-radius:50%;
-  filter:blur(90px);
-  opacity:0.6;
+position:absolute;
+width:500px;
+height:500px;
+border-radius:50%;
+filter:blur(100px);
+opacity:0.6;
 }
 
-.g1{background:#7c3aed;top:15%;left:50%;transform:translate(-50%,-50%)}
-.g2{background:#06b6d4;top:70%;left:20%}
-.g3{background:#ff0077;top:80%;left:80%}
+.g1{background:#00d4ff;top:20%;left:50%;transform:translate(-50%,-50%)}
+.g2{background:#7c3aed;top:70%;left:20%}
+.g3{background:#00ff88;top:80%;left:80%}
 
 /* ===== HERO ===== */
 .hero{
-  position:absolute;
-  left:50%;
-  top:50%;
-  width:420px;
-  height:240px;
-  transform:translate(-50%,-50%);
-  border-radius:25px;
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(20px);
-  border:1px solid rgba(255,255,255,0.2);
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  box-shadow:0 0 60px rgba(124,58,237,0.25);
+position:absolute;
+left:50%;
+top:50%;
+width:440px;
+height:240px;
+transform:translate(-50%,-50%);
+background:rgba(255,255,255,0.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,0.2);
+border-radius:25px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+box-shadow:0 0 60px rgba(0,212,255,0.25);
 }
 
 .hero h1{
-  font-size:44px;
-  background:linear-gradient(90deg,#fff,#a855f7,#06b6d4);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+font-size:42px;
+background:linear-gradient(90deg,#fff,#00d4ff,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 .hero p{
-  margin-top:10px;
-  opacity:0.7;
-  max-width:300px;
-  font-size:14px;
+margin-top:10px;
+opacity:0.7;
+font-size:14px;
+max-width:300px;
 }
 
-/* ===== FLOATING CARDS ===== */
+/* ===== FLOAT CARDS ===== */
 .card{
-  position:absolute;
-  width:180px;
-  height:120px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(15px);
-  border:1px solid rgba(255,255,255,0.15);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  font-size:14px;
+position:absolute;
+width:170px;
+height:110px;
+border-radius:18px;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.15);
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+font-size:13px;
 }
 
 .c1{transform:translate(-320px,-140px) translateZ(-200px)}
@@ -97,70 +92,69 @@ body{
 .c3{transform:translate(-260px,180px) translateZ(-400px)}
 .c4{transform:translate(300px,140px) translateZ(-250px)}
 
-/* ===== SCROLL SECTIONS ===== */
+/* ===== SCROLL TEXT ===== */
 .section{
-  height:100vh;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
 }
 
 .section h2{
-  font-size:60px;
-  background:linear-gradient(90deg,#fff,#7c3aed,#06b6d4);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  opacity:0;
-  transform:translateY(50px);
-  transition:0.8s;
+font-size:58px;
+background:linear-gradient(90deg,#fff,#00d4ff,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+opacity:0;
+transform:translateY(40px);
+transition:0.8s;
 }
 
 </style></head>
 <body><div class="scene">  <div class="glow g1"></div>
   <div class="glow g2"></div>
   <div class="glow g3"></div>  <div class="hero" id="hero">
-    <h1>Veloura Dining</h1>
-    <p>Apple-level immersive 3D luxury restaurant experience</p>
-  </div>  <div class="card c1">Fine Dining</div>
-  <div class="card c2">Luxury Chefs</div>
-  <div class="card c3">Premium Taste</div>
-  <div class="card c4">5★ Experience</div></div><div class="section"><h2>Crafted Like Apple</h2></div>
-<div class="section"><h2>Floating 3D Space</h2></div>
-<div class="section"><h2>Luxury Redefined</h2></div><script>
-let targetY = 0;
-let currentY = 0;
+    <h1>NeonWash</h1>
+    <p>Apple-level futuristic car wash experience with premium 3D luxury spa detailing</p>
+  </div>  <div class="card c1">Foam Cleaning</div>
+  <div class="card c2">Pressure Wash</div>
+  <div class="card c3">Interior Detail</div>
+  <div class="card c4">Showroom Finish</div></div><div class="section"><h2>Touchless Cleaning Tech</h2></div>
+<div class="section"><h2>High Pressure Foam System</h2></div>
+<div class="section"><h2>Showroom Shine Finish</h2></div><script>
+let targetY=0;
+let currentY=0;
 
-window.addEventListener("scroll", () => {
-  targetY = window.scrollY;
+window.addEventListener("scroll",()=>{
+  targetY=window.scrollY;
 });
 
 function animate(){
-  currentY += (targetY - currentY) * 0.08;
+  currentY += (targetY-currentY)*0.08;
 
-  const hero = document.getElementById("hero");
+  const hero=document.getElementById("hero");
 
-  hero.style.transform = 
-    `translate(-50%,-50%) translateZ(${currentY * 0.5}px) scale(${1 + currentY * 0.0003})`;
+  hero.style.transform=
+  `translate(-50%,-50%) translateZ(${currentY*0.5}px) scale(${1+currentY*0.0003})`;
 
-  document.querySelector(".c1").style.transform =
-    `translate(-320px,-140px) translateZ(${currentY * 0.3}px)`;
+  document.querySelector(".c1").style.transform=
+  `translate(-320px,-140px) translateZ(${currentY*0.3}px)`;
 
-  document.querySelector(".c2").style.transform =
-    `translate(280px,-200px) translateZ(${currentY * 0.4}px)`;
+  document.querySelector(".c2").style.transform=
+  `translate(280px,-200px) translateZ(${currentY*0.4}px)`;
 
-  document.querySelector(".c3").style.transform =
-    `translate(-260px,180px) translateZ(${currentY * 0.5}px)`;
+  document.querySelector(".c3").style.transform=
+  `translate(-260px,180px) translateZ(${currentY*0.5}px)`;
 
-  document.querySelector(".c4").style.transform =
-    `translate(300px,140px) translateZ(${currentY * 0.6}px)`;
+  document.querySelector(".c4").style.transform=
+  `translate(300px,140px) translateZ(${currentY*0.6}px)`;
 
-  // reveal text
   document.querySelectorAll(".section h2").forEach(el=>{
-    const top = el.getBoundingClientRect().top;
-    if(top < window.innerHeight * 0.8){
-      el.style.opacity = 1;
-      el.style.transform = "translateY(0)";
+    const top=el.getBoundingClientRect().top;
+    if(top<window.innerHeight*0.8){
+      el.style.opacity=1;
+      el.style.transform="translateY(0)";
     }
   });
 
@@ -169,4 +163,4 @@ function animate(){
 
 animate();
 </script></body>
-</html> 
+</html>
